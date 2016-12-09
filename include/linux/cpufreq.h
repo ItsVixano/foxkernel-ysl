@@ -133,7 +133,7 @@ static inline struct cpufreq_policy *cpufreq_cpu_get(unsigned int cpu)
 {
 	return NULL;
 }
-static inline void cpufreq_cpu_put(struct cpufreq_policy *policy) { }
+ static inline void cpufreq_cpu_put(struct cpufreq_policy *policy) { }
 #endif
 
 static inline bool policy_is_shared(struct cpufreq_policy *policy)
@@ -531,6 +531,11 @@ extern struct cpufreq_governor cpufreq_gov_darkness;
 #elif defined(CONFIG_CPU_FREQ_DEFAULT_GOV_LIONFISH)
 extern struct cpufreq_governor cpufreq_gov_lionfish;
 #define CPUFREQ_DEFAULT_GOVERNOR       (&cpufreq_gov_lionfish)
+#elif defined(CONFIG_CPU_FREQ_DEFAULT_GOV_ELEMENTALX)
+extern struct cpufreq_governor cpufreq_gov_elementalx;
+#define CPUFREQ_DEFAULT_GOVERNOR	(&cpufreq_gov_elementalx)
+extern struct cpufreq_governor cpufreq_gov_impulse;
+#define CPUFREQ_DEFAULT_GOVERNOR	(&cpufreq_gov_impulse)
 #endif
 
 /*********************************************************************
