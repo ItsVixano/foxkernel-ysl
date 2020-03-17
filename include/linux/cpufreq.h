@@ -358,7 +358,7 @@ void cpufreq_suspend(void);
 void cpufreq_resume(void);
 int cpufreq_generic_suspend(struct cpufreq_policy *policy);
 #else
- static inline void cpufreq_suspend(void) {}
+static inline void cpufreq_suspend(void) {}
 static inline void cpufreq_resume(void) {}
 #endif
 
@@ -525,15 +525,18 @@ extern struct cpufreq_governor cpufreq_gov_smartmax_eps;
 #elif defined(CONFIG_CPU_FREQ_DEFAULT_GOV_INTELLIACTIVE)
 extern struct cpufreq_governor cpufreq_gov_intelliactive;
 #define CPUFREQ_DEFAULT_GOVERNOR        (&cpufreq_gov_intelliactive)
+#elif defined(CONFIG_CPU_FREQ_DEFAULT_GOV_LIONHEART)
+extern struct cpufreq_governor cpufreq_gov_lionheart;
+#define CPUFREQ_DEFAULT_GOVERNOR (&cpufreq_gov_lionheart)
+#elif defined(CONFIG_CPU_FREQ_DEFAULT_GOV_SMARTMAX)
+extern struct cpufreq_governor cpufreq_gov_smartmax;
+#define CPUFREQ_DEFAULT_GOVERNOR (&cpufreq_gov_smartmax)
 #elif defined(CONFIG_CPU_FREQ_DEFAULT_GOV_DARKNESS)
 extern struct cpufreq_governor cpufreq_gov_darkness;
 #define CPUFREQ_DEFAULT_GOVERNOR       (&cpufreq_gov_darkness)
 #elif defined(CONFIG_CPU_FREQ_DEFAULT_GOV_LIONFISH)
 extern struct cpufreq_governor cpufreq_gov_lionfish;
 #define CPUFREQ_DEFAULT_GOVERNOR       (&cpufreq_gov_lionfish)
-#elif defined(CONFIG_CPU_FREQ_DEFAULT_GOV_ELEMENTALX)
-extern struct cpufreq_governor cpufreq_gov_elementalx;
-#define CPUFREQ_DEFAULT_GOVERNOR	(&cpufreq_gov_elementalx)
 extern struct cpufreq_governor cpufreq_gov_impulse;
 #define CPUFREQ_DEFAULT_GOVERNOR	(&cpufreq_gov_impulse)
 #endif
